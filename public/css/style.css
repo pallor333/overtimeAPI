@@ -1,0 +1,16 @@
+h1{
+    color: blue;
+}
+
+.employee {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 10px;
+    border: 1px solid #ccc; /* Optional: Add a border */
+    border-radius: 5px; /* Optional: Add rounded corners */
+  }
+  
+  .employee:last-child {
+    border-bottom: none; /* Remove border for the last employee */
+  }

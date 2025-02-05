@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document 2</title>
+</head>
+<body>
+    <h1>Current Employees</h1>
+    <ul class="employees">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="employee">
+            <span class="employee-name"><%= info[i].name %></span>
+            <span class="employee-hours"><%= info[i].hours %></span>
+            <span class="employee-start-date"><%= info[i].startDate %></span>
+            <span class="employee-shift"><%= info[i].shift %></span>
+            <span class='fa fa-trash'></span>
+        </li>
+    <% } %>
+    </ul>
+
+    <h2>Add an Employee:</h2>
+
+    <form action="/addEmployee" method="POST">
+        <input type="text" placeholder="Name" name="name">
+        <input type="text" placeholder="Hours" name="hours">
+        <input type="text" placeholder="Seniority" name="startDate">
+        <input type="text" placeholder="Normal Shift" name="shift">
+        <input type="submit">
+    </form>
+    
+
+    <script src='js/main.js'></script>
+</body>
+</html>
