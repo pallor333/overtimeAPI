@@ -22,9 +22,9 @@ MongoClient.connect(dbConnectionStr)
         app.use(express.json());
     
         // Routes
-        //const router = express.Router()
+        const router = express.Router()
 
-        app.get('/', (request, response) => {
+        router.get('/', (request, response) => {
             //Access overtime collection, retrieve all documents, sort by hours descending, then convert
             //into an array of JS Objects.
             db.collection('overtime').find().sort({ hours: -1 }).toArray()
@@ -37,7 +37,7 @@ MongoClient.connect(dbConnectionStr)
                 });
         });
 
-        app.post('/addEmployee', (request, response) => {
+        router.post('/addEmployee', (request, response) => {
             db.collection('overtime').insertOne({
                 name: request.body.name,
                 hours: request.body.hours,
@@ -54,7 +54,7 @@ MongoClient.connect(dbConnectionStr)
             });
         });
 
-        app.delete('/deleteEmployee', (request, response) => {
+        router.delete('/deleteEmployee', (request, response) => {
             db.collection('overtime').deleteOne({
                 name: request.body.currName,
                 hours: request.body.currHours,
@@ -71,7 +71,7 @@ MongoClient.connect(dbConnectionStr)
                 });
         });
 
-    //app.use('/.netlify/functions/server', router);
+    app.use('/.netlify/functions/server', router);
 
     // Export express app as Netlify function
     module.exports.handler = serverless(app);
