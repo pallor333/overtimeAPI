@@ -1,0 +1,23 @@
+#netlify.toml should be in the root directory of the project
+
+[build]
+  command = "npm install"         #Install dependencies
+  publish = "public"              #Directory for static files
+  functions = "netlify/functions" #Directory for serverless functions
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200
+
+[functions]
+  external_node_modules = ["express", "mongodb", "serverless-http"]  
+  node_bundler = "esbuild"                        
+  included_files = ["public/**"] #Include the entire public folder
+
+[dev]
+  command = "npm run start:dev"
+  targetPort = 3000
+  port = 5000
+  framework = "#custom"
+  publish = "public"
