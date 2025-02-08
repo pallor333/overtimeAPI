@@ -16,7 +16,7 @@
   included_files = ["public/**"] #Include the entire public folder
 
 [dev]
-  command = "node netlify/functions/server.js" #"npm run start:dev"
+  command = "npm run start:dev"   #"node netlify/functions/server.js" 
   targetPort = 3000
   port = 5000
   framework = "#custom"

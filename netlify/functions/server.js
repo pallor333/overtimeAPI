@@ -1,7 +1,7 @@
 const express = require('express')
 const serverless = require('serverless-http') //Wrap Express app for serverless deployment
 const MongoClient = require('mongodb').MongoClient
-const PORT = 3000 //Netlify will specify the PORT
+//const PORT = 3000 //Netlify will specify the PORT
 require('dotenv').config()
 
 const app = express()
@@ -17,6 +17,7 @@ MongoClient.connect(dbConnectionStr)
 
         // Middleware
         app.set('views', './public/views');
+        app.set('views', __dirname + '/../../views');
         app.use(express.static('public'));
         app.use(express.urlencoded({ extended: true }));
         app.use(express.json());
@@ -71,7 +72,7 @@ MongoClient.connect(dbConnectionStr)
                 });
         });
 
-    app.use('/.netlify/functions/server', router);
+    app.use('/netlify/functions/server', router);
 
     // Export express app as Netlify function
     module.exports.handler = serverless(app);
@@ -82,6 +83,6 @@ MongoClient.connect(dbConnectionStr)
 
 
 //Serverless function. Netlify handles function invocation
-app.listen(process.env.PORT || PORT, ()=>{
-    console.log(`Server running on port ${PORT}`)
-})
+// app.listen(process.env.PORT || PORT, ()=>{
+//     console.log(`Server running on port ${PORT}`)
+// })
