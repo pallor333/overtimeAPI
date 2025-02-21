@@ -19,17 +19,19 @@
 </head>
 <body>
     <h1>Current Employees</h1>
-    <ul class="employees">
-    <% for(let i=0; i < info.length; i++) {%>
-        <li class="employee">
-            <span class="employee-name"><%= info[i].name %></span>
-            <span class="employee-hours"><%= info[i].hours %></span>
-            <span class="employee-start-date"><%= info[i].startDate %></span>
-            <span class="employee-shift"><%= info[i].shift %></span>
-            <span class='fa fa-trash'></span>
-        </li>
-    <% } %>
-    </ul>
+    <div class="employee-list">
+        <ul class="employees">
+        <% for(let i=0; i < info.length; i++) {%>
+            <li class="employee">
+                <span class="employee-name"><%= info[i].name %></span>
+                <span class="employee-hours"><%= info[i].hours %></span>
+                <span class="employee-start-date"><%= info[i].startDate %></span>
+                <span class="employee-shift"><%= info[i].shift %></span>
+                <span class='fa fa-trash'></span>
+            </li>
+        <% } %>
+        </ul>
+    </div>
 
     <h2>Add an Employee:</h2>
 
