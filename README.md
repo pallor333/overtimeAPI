@@ -10,6 +10,7 @@ DONE:
 
 
 ##################################################
+
 Setup:
 npm install
 npm install express
@@ -17,4 +18,5 @@ npm install mongodb
 create .env folder, define DB_STRING and PORT
 
 Run using: npm start
+
 ##################################################
