@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
-//const PORT = 2121
 const PORT = process.env.PORT || 2121
 require('dotenv').config()
 
@@ -50,24 +49,6 @@ app.delete('/deleteEmployee', (request, response) => {
     .catch(error => console.error(error))
 
 }) 
-/*
-app.put('/addOneLike', (request, response) => {
-    db.collection('rappers').updateOne({stageName: request.body.stageNameS, birthName: request.body.birthNameS,likes: request.body.likesS},{
-        $set: {
-            likes:request.body.likesS + 1
-          }
-    },{
-        sort: {_id: -1},
-        upsert: true
-    })
-    .then(result => {
-        console.log('Added One Like')
-        response.json('Like Added')
-    })
-    .catch(error => console.error(error))
-
-})
-*/
 
 app.listen(process.env.PORT || PORT, ()=>{
     console.log(`Server running on port ${PORT}`)

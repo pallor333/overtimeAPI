@@ -9,12 +9,12 @@ DONE:
 - Figured out what deleteEmployee() does/edited it
 
 
-##########################################How to use
+##################################################
+Setup:
 npm install
 npm install express
 npm install mongodb
-
 create .env folder, define DB_STRING and PORT
 
-npm start
+Run using: npm start
 ##################################################
